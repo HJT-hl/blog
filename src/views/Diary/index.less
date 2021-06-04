@@ -1,0 +1,31 @@
+.Diary{
+  box-sizing: border-box;
+  max-width: 1360px;
+  width: 100%;
+  padding: 80px 50px;
+  margin: 0 auto;
+  .diary-main{
+    box-sizing: border-box;
+    width: 100%;
+    padding: 30px 8% 30px 20%;
+    background-color: #fff;
+    .el-timeline{
+      /deep/ .el-timeline-item__timestamp{
+        position: absolute;
+        top: -8px;
+        left: -134px;
+        font-size: 20px;
+        font-weight: bolder;
+        color: #6bc30d;
+      }
+      .el-timeline-item{
+        .el-card{
+          p{
+            font-size: 14px;
+            line-height: 30px;
+          }
+        }
+      }
+    }
+  }
+}
