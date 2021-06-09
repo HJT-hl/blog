@@ -1,7 +1,7 @@
 import {h,defineComponent, reactive, onMounted, ref, onUnmounted, PropType} from "vue"
 import {getRegisterVCode,getRegisterCheckVcode,postRegister}  from "../../api"
-import {ElMessage,ElMessageBox,ElDialog,ElForm,ElFormItem,ElInput,ElLink,ElButton} from "element-plus"
-
+import {ElMessage,ElMessageBox,ElDialog,ElForm,ElFormItem,ElInput,ElButton} from "element-plus"
+import "./index.less"
 interface RegisterReactive {
     svgText : string,
     refreshText : string,
@@ -59,6 +59,7 @@ export default defineComponent({
             pwd : {
                 type:"string",
                 validator : (rule:null,value:string,cb:(e?:Error)=>{})=>{
+
                     if (value){
                         //验证密码是否符合规则
                         if (/^[\w<>,.?|;':"{}!@#$%^&*()\/\-\[\]\\]{6,18}$/.test(value)){
@@ -69,7 +70,6 @@ export default defineComponent({
                     }else{
                         cb(new Error("请输入密码"));
                     }
-
                     //在这里还需要触发确认密码的验证
                     form.checkPwd && formRef.value.validateField("checkPwd");
                 },
@@ -187,7 +187,6 @@ export default defineComponent({
             ElMessageBox.confirm('确认关闭？')
                 .then(()=> {
                     props.OnHandleClose(false)
-
                 })
                 .catch(()=> {});
         }
@@ -198,16 +197,29 @@ export default defineComponent({
         onUnmounted(()=>{
             clearTimeout(register.timer);
         })
-        // @ts-ignore
+
+
         return ()=><ElDialog
-            title="注册"
             modelValue={props.dialogVisible}
             width="30%"
             beforeClose={beforeClose}
+            v-slots={{
+                title:()=><div style={{textAlign:"center"}}>注册</div>,
+                footer:()=> <div  class="dialog-footer">
+                     <ElButton type="primary"
+                        // @ts-ignore
+                                onClick={handleClick}
+                                disabled={register.submitDisabled}
+                                style={{width:"200px"}}
+                    >
+                        立即注册
+                    </ElButton>
+                </div>
+            }}
         >
             <ElForm
                 ref={formRef}
-                v-model={form}
+                model={form}
                 labelWidth="80px"
                 rules={rules}
             >
@@ -222,27 +234,17 @@ export default defineComponent({
                 </ElFormItem>
                 <ElFormItem label="验证码" prop="svgCode" class="vcode">
                     <ElInput v-model={form.svgCode} />
-                    <div class="svg" v-html="register.svgText"></div>
-                    <ElLink  type="primary"
+                    <div class="svg" v-html={register.svgText}></div>
+                    <ElButton  type="text"
                             // @ts-ignore
-                             OnClick={getVCode}
-                             disabled={register.disabled}>
+                             onClick={getVCode}
+                             disabled={register.disabled}
+                    >
                         {register.refreshText}
-                    </ElLink>
+                    </ElButton>
                 </ElFormItem>
             </ElForm>
-            <span  class="dialog-footer">
-                {
-                    slots.footer
-                        ? slots.footer()
-                        : <ElButton type="primary"
-                            // @ts-ignore
-                                    OnClick={handleClick}
-                                    disabled={register.submitDisabled}>
-                            立即注册
-                        </ElButton>
-                }
-            </span>
+
         </ElDialog>
     }
 })

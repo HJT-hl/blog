@@ -1,9 +1,7 @@
 export  interface User {
     user : string,
     pwd : string,
-    photo : string,
-    disabled : boolean,
-    admin : string,
+    photo : string
 }
 
 export interface RegistryUser extends Pick<User,"user"|"pwd">{

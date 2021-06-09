@@ -1,0 +1,110 @@
+@import "./base.less";
+/* Typography
+-------------------------------------------------------- */
+.markdown {
+  @root-font-size : 19px;
+  color : #333;
+  background :  #fefefe;
+
+  text-align: justify;
+  h1 {
+    margin-top: 1.6 * @root-font-size;
+    font-weight: normal;
+  }
+
+  h1 {
+    font-size:3 * @root-font-size;
+  }
+
+  h2 {
+    margin-top:2 * @root-font-size;
+    font-weight: normal;
+  }
+
+  h3 {
+    font-weight: normal;
+    font-style: italic;
+    margin-top: 3 * @root-font-size;
+  }
+
+  h1+h2, h2+h3 {
+    margin-top: 0.83em;
+  }
+
+  p{
+    margin-top: 0;
+    hyphens: auto;
+  }
+
+  ul {
+    margin-top: @root-font-size;
+    list-style: square;
+    padding-left: 1.2em;
+  }
+  ol {
+    padding-left: 1.2em;
+  }
+  blockquote {
+    margin-left: 1em;
+    padding-left: 1em;
+    border-left: 4px solid #67C23A;
+  }
+  code,
+  pre {
+    font-family: "Consolas", "Menlo", "Monaco", monospace, serif;
+    margin-top : @root-font-size;
+  }
+
+  a {
+    color: #2484c1;
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  a img {
+    border: none;
+  }
+  h1 a,
+  h1 a:hover {
+    color: #333;
+    text-decoration: none;
+  }
+  hr {
+    color: #ddd;
+    height: 1px;
+    margin: 2em 0;
+    border-top: solid 1px #ddd;
+    border-bottom: none;
+    border-left: 0;
+    border-right: 0;
+  }
+  table {
+    margin-bottom: 1.333333* @root-font-size;
+  }
+  table th,
+  table td {
+    padding: 8px;
+    line-height: 1.333333* @root-font-size;
+    vertical-align: top;
+    border-top: 1px solid #ddd
+  }
+  table th {
+    font-weight: bold
+  }
+  table thead th {
+    vertical-align: bottom
+  }
+  table caption+thead tr:first-child th,
+  table caption+thead tr:first-child td,
+  table colgroup+thead tr:first-child th,
+  table colgroup+thead tr:first-child td,
+  table thead:first-child tr:first-child th,
+  table thead:first-child tr:first-child td {
+    border-top: 0
+  }
+  table tbody+tbody {
+    border-top: 2px solid #ddd
+  }
+
+}

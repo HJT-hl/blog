@@ -22,10 +22,11 @@ export default defineComponent({
         function handleSubmit (val: string) {
             postIfLogin()
                 .then(res => {
-                    if (res.data.userInfo) {
+                    const {userInfo} = res.data
+                    if (userInfo) {
                         //登陆了，就发送数据到数据库 -- 执行留言提交的ajax
                         commitMessage({
-                            user: res.data.userInfo._id,
+                            user: userInfo._id,
                             content: val
                         }).then(res => {
                             if (res.data.code === 0) {
@@ -33,9 +34,9 @@ export default defineComponent({
                                     type: 'success',
                                     message: '留言成功'
                                 })
-                                setTimeout(() => {
-                                    window.location.reload()
-                                }, 1000)
+
+                                getMessageLists()
+
                             } else {
                                 ElMessage({
                                     type: 'error',
@@ -114,9 +115,8 @@ export default defineComponent({
                                         type: 'success',
                                         message: '评论成功'
                                     })
-                                    setTimeout(() => {
-                                        window.location.reload()
-                                    }, 1000)
+                                    getMessageLists()
+
                                 }
                             })
                     } else {
@@ -244,6 +244,7 @@ export default defineComponent({
                                             <ElButton
                                                 // @ts-ignore
                                                 onClick={() => childCommit(index)}
+                                                size={"small"}
                                             >
                                                 提交
                                             </ElButton>

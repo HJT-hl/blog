@@ -19,7 +19,7 @@ export  const getArticleShow  = ( ()=> {
             limit = 5
         }
 
-        let tag = ['', 'HTML&Css', 'JavaScript', 'Node', 'Vue&React', 'Other'][index]
+        let tag = ['', 'HTML&Css', 'JavaScript', 'Node', 'Vue','React', 'Other'][index]
 
         let data = { skip, limit, tag }
         skip += limit

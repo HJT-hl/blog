@@ -57,6 +57,7 @@ export default defineComponent({
             canvasRef.value.addEventListener('mousemove',handleMousemove)
         }
         function render () {
+            if(!canvasRef.value) return ;
             ctx.clearRect(0, 0, canvasRef.value.width, canvasRef.value.height)
             bubbles.value.forEach(bubble => {
                 bubble.render(ctx)

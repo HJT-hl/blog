@@ -4,21 +4,33 @@ const routes = [
     {
         path: '/',
         name: 'Home',
+        meta: {
+            keepAlive : true
+        },
         component: ()=>import("../views/home")
     },
     {
         path: '/about',
         name: 'About',
+        meta: {
+            keepAlive : true
+        },
         component: () => import('../views/About')
     },
     {
         path: '/blog/:id',
         name: 'Blog',
+        meta: {
+            keepAlive : true
+        },
         component: () => import('../views/Blog')
     },
     {
         path: '/Article/:id',
         name: 'Article',
+        meta: {
+            keepAlive : true
+        },
         component: () => import('../views/Article')
     },
     {
@@ -29,6 +41,9 @@ const routes = [
     {
         path: '/diary',
         name: 'Diary',
+        meta: {
+            keepAlive : true
+        },
         component: () => import('../views/Diary')
     },
     {
@@ -37,8 +52,11 @@ const routes = [
         component: () => import('../views/Links')
     },
     {
-        path: "/",
+        path: "/:W+",
         name: 'NotFound',
+        meta: {
+          keepAlive : true
+        },
         component: () => import('../views/404')
     }
 ]

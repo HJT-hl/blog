@@ -1,9 +1,10 @@
 import  "./index.less"
 import {h,defineComponent, ref, computed, watchEffect, onMounted} from "vue"
 import {getArticleShow} from "../../api"
-import {year,month,date,contentToText} from "../../utils"
+import {year,month,date} from "../../utils"
 import { useRoute } from "vue-router"
 import { Article } from "../../type/article"
+
 
 export default defineComponent({
     name : "ArticleShow",
@@ -74,7 +75,7 @@ export default defineComponent({
                             style={{backgroundImage:'url('+item.surface+')'}}>
                             <i></i>
                         </router-link>
-                        { contentToText(item.content)}
+                        {item.brief}
                     </div>
                     <div class="read-more">
                         <router-link to={'/Article/'+item._id}>继续阅读</router-link>

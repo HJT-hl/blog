@@ -2,6 +2,7 @@ import { ElMessage,ElDialog,ElForm,ElInput,ElFormItem,ElButton } from 'element-p
 import './index.less'
 import { h, defineComponent, reactive, PropType, ref } from 'vue'
 import { postLogin } from '../../api'
+import { useUser } from '../hook/user'
 
 interface Props {
     dialogVisible: boolean;
@@ -21,6 +22,7 @@ export default defineComponent({
         }
     },
     setup (props: Props, { slots }) {
+        const { setUser } = useUser()
         const form = reactive({
             user: '',
             pwd: '',
@@ -87,12 +89,10 @@ export default defineComponent({
                                 type: 'success',
                                 duration: 2000
                             })
-                            setTimeout(() => {
-                                submitDisabled.value = false
+                            setUser( res.data.data)
+                            submitDisabled.value = false
+                            props.OnHandleClose()
 
-                                props.OnHandleClose()
-                                window.location.reload()
-                            }, 1800)
                         }
                     }).catch(e => {
                         ElMessage({
@@ -114,11 +114,24 @@ export default defineComponent({
             props.OnHandleClose()
         }
         return ()=>  <ElDialog
-                title="登录"
                 modelValue={props.dialogVisible}
                 width="30%"
                 beforeClose={beforeClose}
                 closeOnClickModal={false}
+                v-slots={{
+                    title :()=><div style={{textAlign:"center"}}>登录</div>,
+                    footer:()=>  <div class="dialog-footer">
+                            <ElButton
+                                type="primary"
+                                // @ts-ignore
+                                onClick={handleClick}
+                                disabled={submitDisabled.value}
+                                style={{width:"200px"}}
+                            >
+                                登录
+                            </ElButton>
+                </div>
+                }}
             >
             <ElForm
                 ref={formRef}
@@ -132,20 +145,7 @@ export default defineComponent({
                 <ElFormItem label="密码" prop="pwd">
                     <ElInput v-model={form.pwd} show-password/>
                 </ElFormItem>
-                <span class="dialog-footer">
-                    {
-                        slots.footer
-                            ?   slots.footer()
-                            : <ElButton
-                                type="primary"
-                                // @ts-ignore
-                                onClick={handleClick}
-                                disabled={submitDisabled.value}
-                            >
-                                登录
-                            </ElButton>
-                    }
-                </span>
+
             </ElForm>
         </ElDialog>
     }

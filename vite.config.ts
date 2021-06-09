@@ -27,8 +27,5 @@ export default defineConfig({
         jsxFactory: 'h',
         jsxFragment: 'Fragment'
     },
-    server: {
-        port : 8080
-    }
 
 })

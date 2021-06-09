@@ -32,10 +32,10 @@ export default defineComponent({
                         <i class="fa fa-check"></i>技术优先
                     </p>
                     <p>交换友链可在留言板留言.本站链接如下：<br/>
-                        名称：燕十三<br/>
-                        网址：https://www.yanshisan.cn<br/>
-                        图标：https://www.yanshisan.cn/logo.png<br/>
-                        描述：燕十三·一个人的江湖</p>
+                        名称：四路闲人<br/>
+                        网址：https://blog.along.website<br/>
+                        图标：https://sixian-blog--bg-img.oss-cn-beijing.aliyuncs.com/11.webp<br/>
+                        描述：四路闲人·一个人爱前端的乘虚源</p>
 
                     <p>申请提交后若无其它原因将在24小时内审核,如超过时间还未通过,请私信我.(各种额外因素)</p>
                 </div>

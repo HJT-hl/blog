@@ -25,8 +25,8 @@ export default defineComponent({
                             <ElCard>
                                 <p>{item.txt}</p>
                                 <img src={item.img}
-                                width="100%"
-                                alt=""/>
+                                     style={{width : "100%"}}
+                                    alt=""/>
                             </ElCard>
                         </ElTimelineItem>)
                     }

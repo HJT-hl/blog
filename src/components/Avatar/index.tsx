@@ -20,7 +20,7 @@ export default defineComponent({
     },
     setup(props:Props){
         const imageUrl = ref("")
-        function handleAvatarSuccess(file:File){
+        function handleAvatarSuccess(data:null,file:File){
             // @ts-ignore
             imageUrl.value = URL.createObjectURL(file.raw);
             ElMessage({
@@ -57,7 +57,7 @@ export default defineComponent({
             >
                 <ElUpload
                     class="avatar-uploader"
-                    action="http://localhost:3000/upload/avatar"
+                    action="http://along.website:8000/upload/avatar"
                     show-file-list={false}
                     onSuccess={handleAvatarSuccess}
                     beforeUpload={beforeAvatarUpload}

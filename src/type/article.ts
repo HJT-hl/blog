@@ -2,6 +2,7 @@ export  interface Article {
     _id : string | number;
     type : string;
     title : string;
+    brief:string;
     date : string;
     surface : string;
     content : string;
@@ -9,4 +10,5 @@ export  interface Article {
     pv  : number;
     comment : string[];
     updateDate: string;
+    href : string;
 }

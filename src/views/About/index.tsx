@@ -20,7 +20,6 @@ export default defineComponent({
                             <h1>关于我</h1>
                             <p>
                                 目前是一名大三的学生，热爱前端并投身在其中。做过几个小开源项目，也积极的参与社区的建设。
-
                             </p>
                             <span>
                                 可以通过以下方式联系到我：
@@ -40,7 +39,7 @@ export default defineComponent({
                             </span>
                             <ul>
                                 <li>前 端 ：<code>vue3 + Typescript + jsx + vite</code></li>
-                                <li>后 端 ：<code>node + express + mongoodb + nginx</code>(后续很可能会改动)</li>
+                                <li>后 端 ：<code>node + express + mongoodb</code></li>
                             </ul>
                         </section>
                         <section>

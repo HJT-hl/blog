@@ -1,0 +1,195 @@
+@root-font-size : 19px;
+
+.markdown {
+
+  font-family: "Lucida Console", Consolas, "Courier", monospace;
+
+  iframe {
+    margin: auto
+  }
+
+  a.url {
+    word-break: break-all
+  }
+
+  a:active, a:hover {
+    outline: 0
+  }
+
+  img {
+    max-width: 100%;
+    vertical-align: middle
+  }
+
+  button, input, select, textarea {
+    font-size: inherit;
+    color: inherit;
+    font: inherit
+  }
+
+  input[type=checkbox], input[type=radio] {
+    line-height: normal;
+    padding: 0
+  }
+
+  *, :after, :before {
+    box-sizing: border-box
+  }
+
+
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    break-after: avoid-page;
+    page-break-inside: avoid;
+    orphans: 2;
+    line-height: 1.4em;
+  }
+
+  p {
+    orphans: 4
+  }
+
+  h1 {
+    font-size: 2 * @root-font-size;
+  }
+
+  h2 {
+    font-size: 1.8 * @root-font-size;
+  }
+
+  h3 {
+    font-size: 1.6 * @root-font-size;
+  }
+
+  h4 {
+    font-size: 1.4 * @root-font-size;
+  }
+
+  h5 {
+    font-size: 1.2 * @root-font-size;
+  }
+
+  h6 {
+    font-size: 1 * @root-font-size;
+  }
+
+  a {
+    cursor: pointer
+  }
+
+
+
+
+  figure {
+    overflow-x: auto;
+    margin: 0;
+    max-width: calc(100% + 16px);
+    padding: 0;
+    margin-left: 0;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em
+  }
+
+  figure > table {
+    margin: 0 !important
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto
+  }
+
+  thead {
+    display: table-header-group
+  }
+
+  table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    overflow: auto;
+    page-break-inside: auto;
+    text-align: left
+  }
+
+
+  div.hr:focus {
+    cursor: none
+  }
+
+
+
+  li div {
+    padding-top: 0
+  }
+
+  blockquote {
+    margin: 1rem 0
+  }
+
+  li {
+    margin: 0;
+    position: relative
+  }
+
+  blockquote > :last-child {
+    margin-bottom: 0
+  }
+
+  blockquote > :first-child, li > :first-child {
+    margin-top: 0
+  }
+
+
+  a img, img a {
+    cursor: pointer
+  }
+
+
+  code {
+    text-align: left;
+    vertical-align: initial
+  }
+
+
+  table tr th {
+    border-bottom: 0
+  }
+
+  video {
+    max-width: 100%;
+    display: block;
+    margin: 0 auto
+  }
+
+  iframe {
+    max-width: 100%;
+    width: 100%;
+    border: none
+  }
+
+
+
+  html {
+    font-size: 19px;
+  }
+
+  html, body {
+    margin: auto;
+    background: #fefefe;
+  }
+  body {
+    font-family: "Vollkorn", Palatino, Times;
+    color: #333;
+    line-height: 1.4;
+    text-align: justify;
+  }
+
+
+
+
+}
+
+
+
+

@@ -1,8 +1,4 @@
-export  function  contentToText(value:string){
-    const div = document.createElement("div");
-    div.innerHTML = value;
-    return div.innerText;
-}
+
 
 //得到DOM距离页面顶部的距离
 export function getTop(node:HTMLElement){
@@ -15,3 +11,4 @@ export function getTop(node:HTMLElement){
     }
     return top;
 }
+

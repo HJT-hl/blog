@@ -5,7 +5,7 @@ import {Nav} from '../../components'
 import {year,month,date,getTime} from '../../utils'
 import { useRoute, useRouter } from "vue-router"
 import { Article } from '../../type/article'
-
+import { mdToHTML } from "../../plugin"
 export default defineComponent({
     name : "Article",
     setup(){
@@ -53,14 +53,15 @@ export default defineComponent({
                                     <p class="month">{ month(articleInfo.value.date)}<span>月</span></p>
                                     <p class="year">{year(articleInfo.value.date)}</p>
                                 </section>
-                                <section class="content" v-html={articleInfo.value.content}></section>
+                                <section class="content markdown" v-html={mdToHTML(articleInfo.value.content)}>
+                                </section>
                                 <section class="copyright">
                                     <p class="f-toe fc-black">
                                         非特殊说明，本文版权归 四路闲人 所有，转载请注明出处.
                                     </p>
                                     <p class="f-toe">
                                         本文网址：
-                                        <a href="https://www.baidu.com">https://www.baidu.com</a>
+                                        <a href={articleInfo.value.href}>{articleInfo.value.href}</a>
                                     </p>
                                 </section>
                                 <section class="extend">

@@ -37,13 +37,13 @@ export default defineComponent({
             instance.create();
         });
 
-
         onBeforeUnmount(() => {
             instance.destroy();
         });
 
         function handleClick(){
             props.onSub(instance.txt.html() as string)
+            instance.txt.clear();
         }
 
         return ()=><div>
