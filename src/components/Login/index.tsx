@@ -21,7 +21,7 @@ export default defineComponent({
             required: true
         }
     },
-    setup (props: Props, { slots }) {
+    setup (props: Props) {
         const { setUser } = useUser()
         const form = reactive({
             user: '',
@@ -67,7 +67,11 @@ export default defineComponent({
                 trigger: ['blur', 'change']
             }
         }
-
+        function clearForm(){
+            form.user = ""
+            form.pwd = ""
+            form.checkPwd = ""
+        }
         function handleClick () {
             submitDisabled.value = true
             formRef.value.validate((valid: boolean) => {
@@ -91,6 +95,7 @@ export default defineComponent({
                             })
                             setUser( res.data.data)
                             submitDisabled.value = false
+                            setTimeout(()=>clearForm(),1000)
                             props.OnHandleClose()
 
                         }

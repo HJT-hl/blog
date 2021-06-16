@@ -202,6 +202,7 @@ export default defineComponent({
         return ()=><ElDialog
             modelValue={props.dialogVisible}
             width="30%"
+            style="min-width : 440px;"
             beforeClose={beforeClose}
             v-slots={{
                 title:()=><div style={{textAlign:"center"}}>注册</div>,
@@ -236,6 +237,7 @@ export default defineComponent({
                     <ElInput v-model={form.svgCode} />
                     <div class="svg" v-html={register.svgText}></div>
                     <ElButton  type="text"
+                               class="el-link"
                             // @ts-ignore
                              onClick={getVCode}
                              disabled={register.disabled}

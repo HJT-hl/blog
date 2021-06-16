@@ -17,7 +17,7 @@ export default defineComponent({
                 <div class="point">
                     <router-link to="/blog/0">博客</router-link>
                     <router-link to="/message">留言</router-link>
-                    <router-link to="/diary">日记</router-link>
+                    <router-link to="/about">关于</router-link>
                 </div>
                 <div class="cover-logo">Jack</div>
             </div>

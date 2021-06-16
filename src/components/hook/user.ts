@@ -1,6 +1,6 @@
 import { computed } from 'vue';
 import { useStore} from 'vuex'
-import { UserModule } from '../../store/module/user';
+import { User } from '../../type/user'
 
 export function useUser(){
     const store = useStore();
@@ -10,13 +10,17 @@ export function useUser(){
             photo:store.state.photo
         }
     })
-    const setUser = (payload:UserModule)=> {
+    const setUser = (payload:Pick<User,"user"|"photo" >)=> {
         store.commit('SET_USER_USER', payload.user)
         store.commit('SET_USER_PHOTO', payload.photo)
+    }
+    const setPhoto = (payload:string)=>{
+        store.commit('SET_USER_PHOTO', payload)
     }
 
     return {
         user,
         setUser,
+        setPhoto
     }
 }

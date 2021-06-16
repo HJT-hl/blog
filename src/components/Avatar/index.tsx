@@ -1,6 +1,7 @@
 import { ElMessage,ElUpload,ElDialog } from "element-plus";
 import {h,defineComponent, PropType, ref} from "vue"
 import "./index.less"
+import { useUser } from '../hook/user'
 interface Props {
     dialogVisible: boolean;
     OnHandleClose : ()=>void
@@ -20,7 +21,8 @@ export default defineComponent({
     },
     setup(props:Props){
         const imageUrl = ref("")
-        function handleAvatarSuccess(data:null,file:File){
+        const {setPhoto} = useUser()
+        function handleAvatarSuccess(data:{data:{photo:string}},file:File){
             // @ts-ignore
             imageUrl.value = URL.createObjectURL(file.raw);
             ElMessage({
@@ -28,9 +30,11 @@ export default defineComponent({
                 type: 'success',
                 duration : 2000
             })
-            setTimeout(() =>{
-                window.location.reload();
-            },1700)
+            setPhoto(data.data.photo)
+            props.OnHandleClose()
+            setTimeout(()=>{
+                imageUrl.value = ""
+            },1000)
         }
         function beforeAvatarUpload(file:File) {
             const isType = /^(image\/jpeg|image\/png|image\/gif)$/.test(file.type);
